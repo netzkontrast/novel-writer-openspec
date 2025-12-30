@@ -448,3 +448,51 @@ MIT License - 详见 [LICENSE](./LICENSE)
 
 **Happy Writing! 📝✨**
 
+
+## 🏗️ Project Analysis & Critique
+
+### Functionality Summary
+
+**Novel-Writer-OpenSpec** adapts the **OpenSpec methodology**—traditionally used for software engineering—to the domain of **novel writing**.
+- **Core Concept**: Separates the "Truth" (Specifications in `specs/`) from "Proposals" (Changes in `changes/`).
+- **Workflow**: Writers create a "Change Proposal" (e.g., "Add Chapter 10"), which includes a rationale (`proposal.md`), tasks (`tasks.md`), and updates to world/character specs.
+- **Validation**: Strict enforcement of a `Requirement` + `Scenario` format ensures consistency and helps prevent "plot holes."
+- **AI-First**: Designed as a backend for AI writing assistants, providing clear context and verification steps to minimize hallucinations.
+
+### Critical Evaluation
+
+#### Strengths
+*   **Structured Creativity**: applying CI/CD concepts to storytelling is a powerful innovation for managing complex narratives.
+*   **AI Integration**: The inclusion of `AGENTS.md` and structured JSON outputs makes it an excellent tool for AI agents.
+*   **Clean Architecture**: The separation of Parser (`src/core/parser.ts`), Validator (`src/core/validator.ts`), and CLI logic is clean and maintainable.
+
+#### Weaknesses (Critical)
+*   **Fragile Parsing**: The regex-based parser (`src/core/parser.ts`) relies on exact string matching (e.g., specific whitespace). It is brittle and likely to break with minor user formatting errors.
+*   **Zero Test Coverage**: The repository currently lacks a test suite. `npm test` fails. This is a significant risk for a tool that claims to provide "strict validation."
+*   **Shallow Validation**: Validation checks syntax (e.g., headers exist) but lacks semantic depth (e.g., checking if a removed character is referenced in a new chapter).
+
+### Relevance Assessment
+
+*   **High Relevance (Core)**:
+    *   `src/core/parser.ts`: The heart of the system. Needs refactoring to be more robust.
+    *   `src/core/validator.ts`: The brain. Currently too simple; needs to incorporate "Best Practices."
+    *   `openspec/AGENTS.md`: The "Constitution." Contains logic that should be extracted into code.
+*   **Low Relevance (Peripheral)**:
+    *   `src/utils/`: Generic helpers.
+    *   `novelspec/`: Example content (useful mainly for testing).
+
+### Refactor Strategy: Extracting "Best Ideas"
+
+The "Best Ideas" for this project are currently trapped in text form within **`openspec/AGENTS.md`** under the "Best Practices" section. The goal of a refactor should be to **codify these text rules into software logic**.
+
+1.  **Extract "Simplicity" Rules**:
+    *   *Source*: `AGENTS.md` advises "Default to <100 lines of new code".
+    *   *Refactor*: Update `validator.ts` to warn if a `spec.md` file exceeds a certain complexity or length.
+
+2.  **Extract "Atomic Changes" Rules**:
+    *   *Source*: `AGENTS.md` states "Change must have at least one delta".
+    *   *Refactor*: Ensure `validator.ts` strictly fails if the `specs/` folder in a change is empty.
+
+3.  **Extract "Strict Formatting" Rules**:
+    *   *Source*: `AGENTS.md` details strict `#### Scenario:` usage.
+    *   *Refactor*: Move the fragile regex logic from `parser.ts` into a dedicated **Grammar Definition** or AST parser to make these rules robust and reusable.
