@@ -1,212 +1,212 @@
-# 小说创作工作流程指导
+# Novel Writing Workflow Guidance
 
-本文档为 AI 助手提供小说创作的工作流程指导，基于 OpenSpec 方法论。
+This document provides workflow guidance for AI assistants in novel writing, based on the OpenSpec methodology.
 
-## 概述
+## Overview
 
-本项目使用 OpenSpec 方法论进行小说创作管理。核心工作流程：
+This project uses the OpenSpec methodology for novel writing management. Core workflow:
 
 ```
-规格定义 (specify) → 澄清决策 (clarify) → 规划创作 (plan) → 执行写作 (write) → 分析验证 (analyze)
+Specify → Clarify → Plan → Write → Analyze
 ```
 
-**OpenSpec 方法论基础**：参见项目根目录的 `@/AGENTS.md` 了解如何使用 OpenSpec 框架（变更提案、规格管理等）。
+**OpenSpec Methodology Foundation**: Refer to `@/AGENTS.md` in the project root to understand how to use the OpenSpec framework (change proposals, spec management, etc.).
 
 ---
 
-## 🎯 澄清规格（Clarification）- 并行路径展示模式
+## 🎯 Clarify Specs (Clarification) - Parallel Path Display Mode
 
-当规格中存在模糊决策点或 `[需要澄清]` 标记时，使用以下澄清流程。
+When there are ambiguous decision points or `[Need Clarification]` tags in the specs, use the following clarification process.
 
-### 触发时机
+### Trigger Timing
 
-- 规格文件中存在 `[需要澄清]` 标记
-- 用户明确要求澄清
-- 检测到关键模糊点（创作定位、角色设计、叙事策略等）
-- 在开始正式创作规划（plan）之前
+- `[Need Clarification]` tag exists in spec files
+- User explicitly requests clarification
+- Key ambiguities detected (creative positioning, character design, narrative strategy, etc.)
+- Before starting formal creative planning (plan)
 
-### 核心设计：并行路径展示
+### Core Design: Parallel Path Display
 
-**不要**预测单一路径（避免引导用户、导致同质化）
-**而是**展示 2-3 条并行路径 + 明确鼓励创新混搭
+**DO NOT** predict a single path (avoid guiding users, leading to homogeneity)
+**INSTEAD** display 2-3 parallel paths + explicitly encourage innovative mix-and-match
 
-### 澄清的 7 大类别
+### 7 Major Categories of Clarification
 
-扫描规格文件，识别以下类别的模糊点：
+Scan spec files to identify ambiguities in the following categories:
 
-1. **创作定位**：目标读者年龄段、作品定位（商业/文学）、预期规模
-2. **世界观设定**：时代背景、世界规则、地理范围
-3. **角色设计**：主角性格基调、成长曲线、配角定位
-4. **叙事策略**：视角选择、时间线结构、叙事节奏
-5. **情节核心**：核心冲突类型、主线目标、结局倾向
-6. **风格基调**：文风选择、描写侧重、情感基调
-7. **创作约束**：敏感内容处理、价值观导向、更新计划
+1. **Creative Positioning**: Target reader age group, work positioning (commercial/literary), expected scale
+2. **Worldbuilding**: Era background, world rules, geographical scope
+3. **Character Design**: Protagonist personality tone, growth curve, supporting character positioning
+4. **Narrative Strategy**: Perspective choice, timeline structure, narrative pacing
+5. **Plot Core**: Core conflict type, main storyline goal, ending tendency
+6. **Style Tone**: Writing style choice, descriptive focus, emotional tone
+7. **Creative Constraints**: Sensitive content handling, value orientation, update plan
 
-### 路径生成原则
+### Path Generation Principles
 
-为每个澄清任务生成 2-3 条并行路径：
+Generate 2-3 parallel paths for each clarification task:
 
-#### 路径A：经典路线
+#### Path A: Classic Route
 
-- 基于规格中的线索推断最匹配的经典路径
-- 选择市场验证充分的组合
-- 明确标注为"经典路线"
-- 提供参考作品示例
+- Infer the most matching classic path based on clues in specs
+- Choose combinations fully verified by the market
+- Clearly mark as "Classic Route"
+- Provide reference work examples
 
-#### 路径B：差异化路线
+#### Path B: Differentiated Route
 
-- 与路径A形成对比的第二选择
-- 提供不同的创作方向
-- 标注为"深度路线"或"差异化路线"
-- 说明优势和挑战
+- Second choice contrasting with Path A
+- Provide a different creative direction
+- Mark as "Deep Route" or "Differentiated Route"
+- Explain advantages and challenges
 
-#### 路径C：创新混搭路线
+#### Path C: Innovative Mix-and-Match Route
 
-- **明确鼓励打破常规**
-- 提供反直觉的组合示例
-- 标注为"创新路线"
-- 强调"任何组合都有可能成功"
-- 不提供固定答案组合（完全开放）
+- **Explicitly encourage breaking conventions**
+- Provide counter-intuitive combination examples
+- Mark as "Innovative Route"
+- Emphasize "Any combination is possible to succeed"
+- Do not provide fixed answer combinations (completely open)
 
-### 问题设计原则
+### Question Design Principles
 
-每个问题（最多5个）应包含：
+Each question (max 5) should include:
 
-1. **问题背景** (💬)：说明为什么要问这个问题
-2. **核心问题**：清晰的问题陈述
-3. **选项标注**：
-   - **路径标签**：[路径A] [路径B] [路径C]
-   - **常见度标签**：
-     - ⚠️ 最常见（80%作品使用）
-     - 📊 常见（50%左右）
-     - ⭐ 创新点（<20%但有趣）
-     - 🎨 完全创新
+1. **Question Context** (💬): Explain why this question is asked
+2. **Core Question**: Clear question statement
+3. **Option Labels**:
+   - **Path Label**: [Path A] [Path B] [Path C]
+   - **Commonness Label**:
+     - ⚠️ Most Common (Used by 80% of works)
+     - 📊 Common (Around 50%)
+     - ⭐ Innovative Point (<20% but interesting)
+     - 🎨 Completely Innovative
 
-示例问题格式：
+Example Question Format:
 
 ```markdown
-### 问题 1：目标读者年龄段？
-💬 这是核心定位问题，将影响整体风格和叙事策略。
+### Question 1: Target Reader Age Group?
+💬 This is a core positioning question that will affect the overall style and narrative strategy.
 
-| 选项 | 说明 | 路径标注 | 常见度 |
+| Option | Description | Path Label | Commonness |
 |------|------|----------|--------|
-| a | 18-25岁（学生群体）- 喜欢热血、成长、理想主义 | [路径A] | ⚠️ 最常见 |
-| b | 26-35岁（职场人士）- 关注现实、策略、人性复杂 | [路径B] | 📊 常见 |
-| c | 36-45岁（成熟读者）- 追求深度、文学性、情感共鸣 | | ⭐ 创新点 |
-| d | 跨年龄（通用）- 调整叙事层次，多元化表达 | [路径C] | 🎨 创新 |
+| a | 18-25 years old (Student group) - Like hot-blooded, growth, idealism | [Path A] | ⚠️ Most Common |
+| b | 26-35 years old (Professionals) - Focus on reality, strategy, human complexity | [Path B] | 📊 Common |
+| c | 36-45 years old (Mature readers) - Pursue depth, literary quality, emotional resonance | | ⭐ Innovative Point |
+| d | Cross-age (General) - Adjust narrative levels, diverse expression | [Path C] | 🎨 Innovative |
 ```
 
-### 输出格式要点
+### Output Format Key Points
 
-1. **并行路径分析**（置顶）
-   - 展示 2-3 条完整路径
-   - 每条路径包含：适合人群、核心特点、答案组合、优势、劣势、参考作品
+1. **Parallel Path Analysis** (Top)
+   - Display 2-3 complete paths
+   - Each path includes: Suitable crowd, core features, answer combination, advantages, disadvantages, reference works
 
-2. **详细问题列表**
-   - 每个问题包含：背景说明、选项、路径标注、常见度
+2. **Detailed Question List**
+   - Each question includes: Context explanation, options, path labels, commonness
 
-3. **创新示例**
-   - 提供 3-5 个反常规组合示例
-   - 明确说明"支持所有可能的组合"
+3. **Innovative Examples**
+   - Provide 3-5 unconventional combination examples
+   - Explicitly state "Support all possible combinations"
 
-4. **多种回答方式**
-   - 路径快捷方式：`路径A` 或 `A`
-   - 简洁组合：`1 a 2 b 3 c`
-   - 混合模式：`1 a 2 路径B 3 c`
-   - 自然语言：兼容模式
+4. **Multiple Answer Methods**
+   - Path Shortcut: `Path A` or `A`
+   - Concise Combination: `1 a 2 b 3 c`
+   - Mixed Mode: `1 a 2 Path B 3 c`
+   - Natural Language: Compatible mode
 
-### 批量澄清模式（关键特性）
+### Batch Clarification Mode (Key Feature)
 
-**一次性输出所有问题**，用户**一次性回答**，大幅减少交互轮数：
+**Output all questions at once**, user **answers at once**, significantly reducing interaction turns:
 
 ```
-AI: 输出 2-3 条路径分析 + 5 个问题
-用户: 一次性回答，如 "1 a 2 b 3 c 4 d 5 a" 或 "路径A"
-AI: 解析答案，更新规格，输出报告
+AI: Output 2-3 path analyses + 5 questions
+User: Answer at once, e.g., "1 a 2 b 3 c 4 d 5 a" or "Path A"
+AI: Parse answer, update specs, output report
 ```
 
-### 答案解析逻辑
+### Answer Parsing Logic
 
-支持的输入格式：
+Supported input formats:
 
-- `路径A` / `A` / `path-a` → 应用整条路径的答案组合
-- `1 a 2 b 3 c 4 d 5 a` → 逐题自定义
-- `1a 2b 3c` → 紧凑格式
-- `1 a 2 路径B 3 c` → 混合模式（部分路径 + 部分自定义）
+- `Path A` / `A` / `path-a` → Apply answer combination of the entire path
+- `1 a 2 b 3 c 4 d 5 a` → Custom per question
+- `1a 2b 3c` → Compact format
+- `1 a 2 Path B 3 c` → Mixed mode (Partial path + Partial custom)
 
-### 规格更新
+### Spec Update
 
-在规格文件添加 `## 澄清记录` 章节：
+Add `## Clarification Record` section to spec file:
 
 ```markdown
-## 澄清记录
+## Clarification Record
 
-### 澄清会话 2025-01-24
+### Clarification Session 2025-01-24
 
-**选择的路径**：创新混搭（部分路径A + 部分自定义）⭐
+**Selected Path**: Innovative Mix-and-Match (Partial Path A + Partial Custom) ⭐
 
-**具体答案**：
-1. 目标读者：18-25岁（学生群体）[选项a]
-2. 故事类型：职场权谋型 [选项c] ⭐ 创新组合！
-3. 主角起点：废柴逆袭 [选项a]
-4. 成长体系：中等复杂度 [选项b]
-5. 主线节奏：张弛有度 [选项c]
+**Specific Answers**:
+1. Target Reader: 18-25 years old (Student group) [Option a]
+2. Story Type: Workplace Strategy Type [Option c] ⭐ Innovative Combination!
+3. Protagonist Start: Loser Counterattack [Option a]
+4. Growth System: Medium Complexity [Option b]
+5. Mainline Rhythm: Moderate Tension [Option c]
 
-**创新点说明**：
-选择了"学生读者 + 职场权谋"的非常规组合，可以打造校园政治小说，
-这是一个少见但有潜力的方向。
+**Innovation Explanation**:
+Selected unconventional combination of "Student Reader + Workplace Strategy", can create a campus politics novel,
+This is a rare but potential direction.
 
-**对规格的更新**：
-- 更新"目标读者画像"为 18-25 岁学生群体
-- 更新"市场定位"为职场权谋型（校园背景）
-- 更新"核心冲突"为权力博弈与成长的结合
+**Updates to Spec**:
+- Update "Target Reader Persona" to 18-25 years old student group
+- Update "Market Positioning" to Workplace Strategy Type (Campus Background)
+- Update "Core Conflict" to combination of power game and growth
 ```
 
-### 鼓励创新的关键表述
+### Key Expressions Encouraging Innovation
 
-在澄清过程中，务必包含以下鼓励创新的表述：
+During clarification, must include the following expressions encouraging innovation:
 
-- "**我们支持所有可能的组合！**不要被路径限制，创新往往来自打破规则。"
-- "任何非常规组合都有可能成功！"
-- "独特性往往来自打破规则，坚持您的创意！"
-- 提供具体的创新组合示例（如"学生 + 权谋 = 校园政治小说"）
+- "**We support all possible combinations!** Do not be limited by paths, innovation often comes from breaking rules."
+- "Any unconventional combination has the potential to succeed!"
+- "Uniqueness often comes from breaking rules, stick to your creativity!"
+- Provide specific innovative combination examples (e.g., "Student + Strategy = Campus Politics Novel")
 
-### CLI 命令使用
+### CLI Command Usage
 
 ```bash
-# 全面澄清
+# Comprehensive Clarification
 novelspec clarify
 
-# 聚焦特定领域（未来功能）
-novelspec clarify characters    # 仅聚焦角色设计
-novelspec clarify worldbuilding # 仅聚焦世界观
+# Focus on specific domain (Future feature)
+novelspec clarify characters    # Focus on character design only
+novelspec clarify worldbuilding # Focus on worldbuilding only
 ```
 
 ---
 
-## 重要原则
+## Important Principles
 
-1. **多样性保护**：通过并行路径展示，避免单一预测导致的同质化
-2. **鼓励创新**：明确鼓励非常规组合，标注创新点
-3. **批量高效**：一次性输出问题，一次性收集答案，减少 token 消耗
-4. **灵活格式**：支持多种答案输入格式，降低用户门槛
-5. **记录完整**：所有澄清决策都记录在规格文件中，可追溯
-
----
-
-## 下一步
-
-澄清完成后，建议：
-
-- 运行 `novelspec validate` 验证规格完整性
-- 进入创作规划阶段（plan）
-- 开始具体的章节写作
+1. **Diversity Protection**: Avoid homogeneity caused by single prediction through parallel path display.
+2. **Encourage Innovation**: Explicitly encourage unconventional combinations, mark innovative points.
+3. **Batch Efficiency**: Output questions at once, collect answers at once, reduce token consumption.
+4. **Flexible Format**: Support multiple answer input formats, lower user threshold.
+5. **Complete Record**: All clarification decisions are recorded in spec files, traceable.
 
 ---
 
-## 参考资源
+## Next Steps
 
-- **OpenSpec 方法论**：`@/AGENTS.md`
-- **项目约定**：`@novelspec/project.md`
-- **CLI 命令**：运行 `novelspec --help` 查看所有命令
-- **斜杠命令**：`/.claude/commands/clarify.md`
+After clarification is complete, it is recommended to:
+
+- Run `novelspec validate` to verify spec integrity
+- Enter creative planning stage (plan)
+- Start specific chapter writing
+
+---
+
+## Resources
+
+- **OpenSpec Methodology**: `@/AGENTS.md`
+- **Project Conventions**: `@novelspec/project.md`
+- **CLI Commands**: Run `novelspec --help` to view all commands
+- **Slash Commands**: `/.claude/commands/clarify.md`

@@ -18,18 +18,28 @@ import { getUrbanTemplate } from './worldbuilding/urban-template.js';
 import { getChapterTemplate, getOutlineTemplate } from './outline/chapter-template.js';
 
 // Knowledge 模板
-import { getWorldSettingTemplate } from './knowledge/world-setting-template.js';
-import { getCharacterProfileTemplate } from './knowledge/character-profile-template.js';
+import { WORLD_SETTING_TEMPLATE } from './knowledge/world-setting-template.js';
+import { CHARACTER_PROFILE_TEMPLATE } from './knowledge/character-profile-template.js';
 
 // Tracking 模板
-import { getPlotTrackerTemplate } from './tracking/plot-tracker-template.js';
+import { PLOT_TRACKER_TEMPLATE } from './tracking/plot-tracker-template.js';
 
 // 重新导出
 export { getProtagonistTemplate, getSupportingTemplate, getVillainTemplate };
 export { getXuanhuanTemplate, getWuxiaTemplate, getUrbanTemplate };
 export { getChapterTemplate, getOutlineTemplate };
-export { getWorldSettingTemplate, getCharacterProfileTemplate };
-export { getPlotTrackerTemplate };
+
+// Wrap templates in functions to match the interface if needed, or export directly if that was the intention.
+// The previous code expected functions like getWorldSettingTemplate.
+// Let's create wrapper functions to maintain consistency with the expected usage in imports,
+// or check where these are used.
+// Based on the error "has no exported member named 'getWorldSettingTemplate'", the import expected a function but got a constant.
+// But the import was `import { getWorldSettingTemplate } ...`.
+// So I should export functions that return these templates.
+
+export function getWorldSettingTemplate() { return WORLD_SETTING_TEMPLATE; }
+export function getCharacterProfileTemplate() { return CHARACTER_PROFILE_TEMPLATE; }
+export function getPlotTrackerTemplate() { return PLOT_TRACKER_TEMPLATE; }
 
 /**
  * 模板类型定义

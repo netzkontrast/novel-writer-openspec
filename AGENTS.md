@@ -1,58 +1,43 @@
-<!-- OPENSPEC:START -->
-# OpenSpec Instructions
+# Task Tracking: Translate all MD files to English
 
-These instructions are for AI assistants working in this project.
+This `AGENTS.md` file is used to track the progress of translating all Markdown files in the repository from Chinese to English.
 
-Always open `@/openspec/AGENTS.md` when the request:
-- Mentions planning or proposals (words like proposal, spec, change, plan)
-- Introduces new capabilities, breaking changes, architecture shifts, or big performance/security work
-- Sounds ambiguous and you need the authoritative spec before coding
+## Workflow
 
-Use `@/openspec/AGENTS.md` to learn:
-- How to create and apply change proposals
-- Spec format and conventions
-- Project structure and guidelines
+1.  **Pick a file** from `todo.md`.
+2.  **Translate** the file content to English in-place.
+3.  **Remove** the file name from `todo.md`.
+4.  **Verify** the translation.
 
-Keep this managed block so 'openspec update' can refresh the instructions.
+## Task List
 
-<!-- OPENSPEC:END -->
+The list of files to translate is maintained in `todo.md`.
 
----
+## Updated Workflow & Best Practices
 
-# 小说创作工作流程
+### Workflow Improvements
 
-本项目使用 OpenSpec 方法论进行小说创作管理。
+1.  **Batch Processing**: Instead of strictly one-by-one, grouping small files can save context switching time.
+2.  **Context Awareness**: Read `project.md` and `AGENTS.md` first to understand the domain terminology before translating specific specs or changes.
+3.  **Verification**: Always run `novelspec validate` (if available) or check markdown rendering to ensure no formatting was broken during translation.
+4.  **Consistency**: Maintain a glossary of terms (e.g., "Specs" = 规格, "Proposal" = 提案, "Clarification" = 澄清) to ensure consistent translation across files.
 
-**完整的小说创作工作流程指导**：请参见 `@novelspec/AGENTS.md`
+### Best Practices
 
-## 快速链接
+-   **Preserve Formatting**: Markdown headers, lists, code blocks, and bolding must remain exactly as is.
+-   **Technical Terms**: Do not translate technical terms like `specs/`, `changes/`, `novelspec`, `OpenSpec` unless they are being explained.
+-   **Tone**: Keep the professional and structured tone of the original documentation.
+-   **Incremental Updates**: Update `todo.md` frequently to avoid double work or losing track.
 
-- 📖 [小说创作工作流程指导](novelspec/AGENTS.md)
-- 🎯 [澄清规格（批量澄清模式）](novelspec/AGENTS.md#澄清规格clarification--并行路径展示模式)
-- 📋 [项目约定](novelspec/project.md)
-- 📝 [规格文件](novelspec/specs/)
-- 🔄 [变更提案](novelspec/changes/)
+## Continuous Improvement
 
-## 核心命令
+-   **Reflect**: After each major section (e.g., all `openspec/` files), review if terminology is consistent.
+-   **Automate**: If doing this again, a script to grep for untranslated Chinese characters could be useful to spot missed sections.
+-   **Feedback Loop**: If a file was hard to translate due to ambiguity, mark it for clarification in the translation notes.
 
-```bash
-# 初始化项目
-novelspec init <project-name>
+## Reflection on this Task
 
-# 澄清规格中的模糊决策点（批量澄清模式）
-novelspec clarify
+-   **Process**: The process of listing files in `todo.md` and removing them one by one worked well to keep track of progress.
+-   **Challenge**: Some files contained mixed Chinese and English (code vs comments). Care was needed to only translate comments and prose, not code logic or variable names.
+-   **Improvement**: Future tasks could benefit from a pre-scan of terminology to build a glossary upfront.
 
-# 验证规格
-novelspec validate
-
-# 查看帮助
-novelspec --help
-```
-
-## 工作流程概览
-
-```
-规格定义 (specify) → 澄清决策 (clarify) → 规划创作 (plan) → 执行写作 (write) → 分析验证 (analyze)
-```
-
-详见 `@novelspec/AGENTS.md` 获取完整指导。

@@ -1,255 +1,255 @@
-# novel-writer-openspec 项目约定
+# novel-writer-openspec Project Conventions
 
-## 项目概述
+## Project Overview
 
-基于 OpenSpec 方法论的小说创作管理工具，提供结构化的规格管理和创作工作流程。
+A novel writing management tool based on the OpenSpec methodology, providing structured spec management and creative workflow.
 
-## 核心理念
+## Core Philosophy
 
-1. **规格驱动创作**：先定义规格，再进行创作
-2. **渐进式澄清**：从模糊到清晰，逐步明确创作方向
-3. **多样性保护**：避免同质化，鼓励创新组合
-4. **版本管理**：使用 OpenSpec 方法论管理规格变更
+1. **Spec-Driven Creation**: Define specs first, then create.
+2. **Progressive Clarification**: From vague to clear, gradually clarifying creative direction.
+3. **Diversity Protection**: Avoid homogeneity, encourage innovative combinations.
+4. **Version Management**: Manage spec changes using OpenSpec methodology.
 
-## 目录结构
+## Directory Structure
 
 ```
 novelspec/
-├── AGENTS.md           # 小说创作工作流程指导（AI 助手专用）
-├── project.md          # 本文件：项目约定
-├── specs/              # 已确认的小说规格
-│   ├── characters/     # 角色规格
+├── AGENTS.md           # Novel creation workflow guide (AI Assistant specific)
+├── project.md          # This file: Project conventions
+├── specs/              # Confirmed novel specs
+│   ├── characters/     # Character specs
 │   │   ├── protagonist/
 │   │   │   └── spec.md
 │   │   └── supporting/
 │   │       └── spec.md
-│   ├── worldbuilding/  # 世界观规格
+│   ├── worldbuilding/  # Worldbuilding specs
 │   │   ├── magic-system/
 │   │   │   └── spec.md
 │   │   └── geography/
 │   │       └── spec.md
-│   ├── outline/        # 大纲规格
+│   ├── outline/        # Outline specs
 │   │   └── chapter-plan/
 │   │       └── spec.md
-│   └── knowledge/      # 知识库
+│   └── knowledge/      # Knowledge base
 │       ├── character-profiles/
 │       └── world-settings/
-├── changes/            # 待审核的变更提案
+├── changes/            # Pending change proposals
 │   ├── add-character-arc/
 │   │   ├── proposal.md
 │   │   ├── tasks.md
 │   │   └── specs/
 │   │       └── characters/protagonist/spec.md
-│   └── archive/        # 已归档的变更
-└── tracking/           # 创作进度跟踪（JSON 格式）
+│   └── archive/        # Archived changes
+└── tracking/           # Creation progress tracking (JSON format)
     ├── plot-tracker.json
     ├── timeline.json
     └── relationships.json
 ```
 
-## 文件命名约定
+## File Naming Conventions
 
-### 规格文件（specs/）
+### Spec Files (specs/)
 
-- **目录名**：kebab-case，如 `character-protagonist`、`magic-system`
-- **文件名**：统一为 `spec.md`
-- **路径示例**：`specs/characters/protagonist/spec.md`
+- **Directory Name**: kebab-case, e.g., `character-protagonist`, `magic-system`
+- **File Name**: Unified as `spec.md`
+- **Path Example**: `specs/characters/protagonist/spec.md`
 
-### 变更 ID（changes/）
+### Change ID (changes/)
 
-- **格式**：动词引导，kebab-case
-- **动词选择**：
-  - `add-` - 新增功能或内容
-  - `update-` - 修改现有内容
-  - `remove-` - 删除内容
-  - `refactor-` - 重构结构
-  - `fix-` - 修复错误
-- **示例**：
-  - `add-character-arc` - 添加角色成长线
-  - `update-worldbuilding-system` - 更新世界观体系
-  - `refactor-outline-structure` - 重构大纲结构
+- **Format**: Verb-led, kebab-case
+- **Verb Choices**:
+  - `add-` - Add feature or content
+  - `update-` - Modify existing content
+  - `remove-` - Remove content
+  - `refactor-` - Refactor structure
+  - `fix-` - Fix error
+- **Examples**:
+  - `add-character-arc`
+  - `update-worldbuilding-system`
+  - `refactor-outline-structure`
 
-### 知识库文件（knowledge/）
+### Knowledge Base Files (knowledge/)
 
-- **角色档案**：`character-profiles/{name}.md`
-- **世界设定**：`world-settings/{topic}.md`
-- **命名规则**：kebab-case，中文拼音或英文
+- **Character Profiles**: `character-profiles/{name}.md`
+- **World Settings**: `world-settings/{topic}.md`
+- **Naming Rule**: kebab-case, Pinyin or English
 
-### 跟踪文件（tracking/）
+### Tracking Files (tracking/)
 
-- **格式**：JSON
-- **命名**：kebab-case，如 `plot-tracker.json`
-- **更新频率**：每章创作后更新
+- **Format**: JSON
+- **Naming**: kebab-case, e.g., `plot-tracker.json`
+- **Update Frequency**: Update after each chapter creation
 
-## 规格格式约定
+## Spec Format Conventions
 
-### Requirements + Scenarios 格式
+### Requirements + Scenarios Format
 
-所有规格文件使用 OpenSpec 的 Requirements + Scenarios 格式：
+All spec files use OpenSpec's Requirements + Scenarios format:
 
 ```markdown
 ## Requirements
 
-### Requirement: 主角基本设定
-主角应当具备清晰的背景、性格特质和核心动机。
+### Requirement: Protagonist Basic Setting
+The protagonist SHALL have clear background, personality traits, and core motivation.
 
-#### Scenario: 主角背景设定
-- **WHEN** 创建主角规格时
-- **THEN** 必须明确主角的年龄、职业、家庭背景
-- **AND** 性格特质应包含至少3个核心特点
-- **AND** 核心动机应当明确且合理
+#### Scenario: Protagonist Background Setting
+- **WHEN** Creating protagonist spec
+- **THEN** MUST specify protagonist's age, profession, family background
+- **AND** Personality traits should include at least 3 core features
+- **AND** Core motivation should be clear and reasonable
 
-### Requirement: 主角成长轨迹
-主角应当有清晰的成长轨迹，从初始状态到最终状态。
+### Requirement: Protagonist Growth Trajectory
+The protagonist SHALL have a clear growth trajectory, from initial state to final state.
 
-#### Scenario: 成长阶段划分
-- **WHEN** 规划主角成长时
-- **THEN** 应划分为至少3个成长阶段
-- **AND** 每个阶段应有明确的触发事件
-- **AND** 成长应体现在能力、心态或价值观的变化
+#### Scenario: Growth Stage Division
+- **WHEN** Planning protagonist growth
+- **THEN** Should be divided into at least 3 growth stages
+- **AND** Each stage should have clear trigger events
+- **AND** Growth should be reflected in changes of ability, mindset, or values
 ```
 
-### 变更提案格式
+### Change Proposal Format
 
-参见 OpenSpec 标准：
+Refer to OpenSpec standard:
 
-- `proposal.md` - 变更提案（Why、What、Impact）
-- `tasks.md` - 实施任务清单（勾选式）
-- `specs/{capability}/spec.md` - 规格增量（ADDED/MODIFIED/REMOVED）
+- `proposal.md` - Change proposal (Why, What, Impact)
+- `tasks.md` - Implementation task list (Checklist)
+- `specs/{capability}/spec.md` - Spec delta (ADDED/MODIFIED/REMOVED)
 
-## 创作工作流程
+## Creative Workflow
 
-### 标准流程
+### Standard Workflow
 
-1. **规格定义 (Specify)**
-   - 使用模板创建初始规格
-   - 支持 Level 1-4 渐进式规格
+1. **Specify**
+   - Create initial specs using templates
+   - Support Level 1-4 progressive specs
 
-2. **澄清决策 (Clarify)**
-   - 使用 `novelspec clarify` 命令
-   - 批量澄清模式（并行路径展示）
-   - 一次性完成所有决策
+2. **Clarify**
+   - Use `novelspec clarify` command
+   - Batch clarification mode (Parallel path display)
+   - Complete all decisions at once
 
-3. **规划创作 (Plan)**
-   - 制定章节大纲
-   - 分配写作任务
+3. **Plan**
+   - Formulate chapter outline
+   - Assign writing tasks
 
-4. **执行写作 (Write)**
-   - 按照规格进行创作
-   - 使用跟踪系统记录进度
+4. **Write**
+   - Create content according to specs
+   - Use tracking system to record progress
 
-5. **分析验证 (Analyze)**
-   - 验证是否符合规格
-   - 检查一致性
+5. **Analyze**
+   - Verify conformity to specs
+   - Check consistency
 
-### 变更管理流程
+### Change Management Workflow
 
-参见 OpenSpec 标准的三阶段工作流程：
+Refer to OpenSpec standard three-stage workflow:
 
-1. **Creating Changes** - 创建变更提案
-2. **Implementing Changes** - 实施变更
-3. **Archiving Changes** - 归档变更
+1. **Creating Changes** - Create change proposal
+2. **Implementing Changes** - Implement change
+3. **Archiving Changes** - Archive change
 
-## 模板库
+## Template Library
 
-### 可用模板
+### Available Templates
 
-1. **角色模板**：
-   - `character-protagonist` - 主角规格模板
-   - `character-supporting` - 配角规格模板
-   - `character-villain` - 反派规格模板
+1. **Character Templates**:
+   - `character-protagonist` - Protagonist spec template
+   - `character-supporting` - Supporting character spec template
+   - `character-villain` - Villain spec template
 
-2. **世界观模板**：
-   - `worldbuilding-xuanhuan` - 玄幻世界观模板
-   - `worldbuilding-wuxia` - 武侠世界观模板
-   - `worldbuilding-urban` - 都市世界观模板
+2. **Worldbuilding Templates**:
+   - `worldbuilding-xuanhuan` - Fantasy worldview template
+   - `worldbuilding-wuxia` - Wuxia worldview template
+   - `worldbuilding-urban` - Urban worldview template
 
-3. **大纲模板**：
-   - `outline-chapter` - 章节大纲模板
-   - `outline-complete` - 完整大纲模板
+3. **Outline Templates**:
+   - `outline-chapter` - Chapter outline template
+   - `outline-complete` - Complete outline template
 
-4. **知识模板**：
-   - `knowledge-world-setting` - 世界设定模板
-   - `knowledge-character-profile` - 角色档案模板
+4. **Knowledge Templates**:
+   - `knowledge-world-setting` - World setting template
+   - `knowledge-character-profile` - Character profile template
 
-5. **跟踪模板**：
-   - `tracking-plot-tracker` - 情节追踪模板
-   - `tracking-timeline` - 时间线模板
-   - `tracking-relationships` - 关系网模板
+5. **Tracking Templates**:
+   - `tracking-plot-tracker` - Plot tracker template
+   - `tracking-timeline` - Timeline template
+   - `tracking-relationships` - Relationship network template
 
-### 使用模板
+### Using Templates
 
 ```bash
-# CLI 命令（未来功能）
+# CLI command (Future feature)
 novelspec create character --template protagonist
 
-# 或手动复制模板
-# 模板位置：src/core/templates/novel-templates/
+# Or manually copy template
+# Template location: src/core/templates/novel-templates/
 ```
 
-## 验证规则
+## Validation Rules
 
-### 规格验证
+### Spec Validation
 
 ```bash
-# 验证单个变更
+# Validate single change
 novelspec validate add-character-arc
 
-# 验证所有变更
+# Validate all changes
 novelspec validate
 
-# 严格验证
+# Strict validation
 novelspec validate --strict
 ```
 
-### 常见验证失败
+### Common Validation Failures
 
-1. **缺少 Scenario**：每个 Requirement 至少需要一个 Scenario
-2. **格式错误**：Scenario 必须使用 `WHEN/THEN/AND` 格式
-3. **缺少描述性文本**：Requirement 下方必须有描述文本
+1. **Missing Scenario**: Each Requirement needs at least one Scenario
+2. **Format Error**: Scenario must use `WHEN/THEN/AND` format
+3. **Missing Descriptive Text**: Requirement must have descriptive text below
 
-## 最佳实践
+## Best Practices
 
-### 规格编写
+### Spec Writing
 
-1. **从小开始**：使用 Level 1-2 渐进式规格，逐步扩展
-2. **保持简洁**：Requirement 应当聚焦单一关注点
-3. **可验证**：Scenario 应当可测试、可验证
-4. **避免过早细节**：不要在初期规格中过度细化
+1. **Start Small**: Use Level 1-2 progressive specs, expand gradually
+2. **Keep Concise**: Requirement should focus on single concern
+3. **Verifiable**: Scenario should be testable and verifiable
+4. **Avoid Premature Detail**: Do not over-detail in initial specs
 
-### 澄清决策
+### Clarification Decisions
 
-1. **使用批量模式**：一次性回答所有问题，减少交互
-2. **鼓励创新**：不要被常见路径束缚
-3. **记录理由**：澄清记录应包含决策理由
+1. **Use Batch Mode**: Answer all questions at once, reduce interaction
+2. **Encourage Innovation**: Do not be bound by common paths
+3. **Record Reasoning**: Clarification records should include decision reasoning
 
-### 版本管理
+### Version Management
 
-1. **小步快跑**：频繁的小变更优于大规模重构
-2. **清晰命名**：变更 ID 应清晰表达意图
-3. **及时归档**：完成后及时归档，保持 changes/ 目录整洁
+1. **Small Steps**: Frequent small changes are better than large-scale refactoring
+2. **Clear Naming**: Change ID should clearly express intent
+3. **Archive Promptly**: Archive immediately after completion to keep changes/ directory clean
 
-## 工具支持
+## Tool Support
 
-### CLI 命令
+### CLI Commands
 
 ```bash
-novelspec init <project-name>    # 初始化项目
-novelspec clarify                 # 澄清规格
-novelspec validate                # 验证规格
-novelspec list                    # 列出变更
-novelspec list --specs            # 列出规格
-novelspec show <item-id>          # 显示详情
-novelspec archive <change-id>     # 归档变更
+novelspec init <project-name>    # Initialize project
+novelspec clarify                 # Clarify spec
+novelspec validate                # Validate spec
+novelspec list                    # List changes
+novelspec list --specs            # List specs
+novelspec show <item-id>          # Show details
+novelspec archive <change-id>     # Archive change
 ```
 
-### AI 助手指导
+### AI Assistant Guidance
 
-- **AGENTS.md** - 完整的 AI 工作流程指导
-- **Claude Code 斜杠命令** - `.claude/commands/clarify.md`
+- **AGENTS.md** - Complete AI workflow guidance
+- **Claude Code Slash Command** - `.claude/commands/clarify.md`
 
-## 参考资源
+## Resources
 
-- **OpenSpec 文档**：https://github.com/Fission-AI/OpenSpec
-- **项目 README**：`@/README.md`
-- **AI 工作流程指导**：`@novelspec/AGENTS.md`
+- **OpenSpec Documentation**: https://github.com/Fission-AI/OpenSpec
+- **Project README**: `@/README.md`
+- **AI Workflow Guidance**: `@novelspec/AGENTS.md`

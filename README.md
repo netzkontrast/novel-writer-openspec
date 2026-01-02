@@ -1,31 +1,31 @@
 # Novel-Writer-OpenSpec
 
-> 基于 OpenSpec 方法论的小说创作管理工具
+> A novel writing management tool based on the OpenSpec methodology
 
 [![Version](https://img.shields.io/badge/version-0.1.0-blue.svg)](https://github.com/wordflowlab/novel-writer-openspec)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](./LICENSE)
 
-## 📖 简介
+## 📖 Introduction
 
-**Novel-Writer-OpenSpec** 是一个将 OpenSpec 方法论应用于小说创作的工具，通过 `specs/`（已确定规格）和 `changes/`（变更提案）的分离管理，为 AI 辅助小说创作提供清晰的上下文和严格的验证机制。
+**Novel-Writer-OpenSpec** is a tool that applies the OpenSpec methodology to novel writing. By separating `specs/` (established specifications) from `changes/` (change proposals), it provides clear context and strict verification mechanisms for AI-assisted novel creation.
 
-### 核心优势
+### Core Advantages
 
-- ✅ **清晰的上下文管理**：AI 明确知道"已有设定"和"计划设定"
-- ✅ **严格的规格格式**：Requirements + Scenarios 可验证格式
-- ✅ **自动化验证**：格式验证自动化，减少人设崩塌和设定冲突
-- ✅ **结构化演进**：ADDED/MODIFIED/REMOVED 清晰管理设定演进
-- ✅ **AI 友好**：提供 AI 助手集成指令，提升创作效率
+- ✅ **Clear Context Management**: AI clearly knows "existing settings" vs. "planned settings"
+- ✅ **Strict Spec Format**: Requirements + Scenarios verifiable format
+- ✅ **Automated Verification**: Automated format verification reduces character inconsistencies and setting conflicts
+- ✅ **Structured Evolution**: Clearly manage setting evolution with ADDED/MODIFIED/REMOVED
+- ✅ **AI Friendly**: Provides AI assistant integration instructions to improve writing efficiency
 
-## 🚀 快速开始
+## 🚀 Quick Start
 
-### 安装
+### Installation
 
 ```bash
 npm install -g novelspec
 ```
 
-或本地开发：
+Or local development:
 
 ```bash
 git clone https://github.com/wordflowlab/novel-writer-openspec.git
@@ -34,147 +34,147 @@ npm install
 npm link
 ```
 
-### 创建第一个小说项目
+### Create Your First Novel Project
 
 ```bash
-# 初始化项目
+# Initialize project
 novelspec init my-novel
 
-# 进入项目目录
+# Enter project directory
 cd my-novel
 
-# 查看项目结构
+# View project structure
 tree -L 2 novelspec/
 ```
 
-输出：
+Output:
 ```
 novelspec/
-├── project.md       # 项目约定（创作原则、风格指南）
-├── AGENTS.md        # AI 助手工作指令
-├── specs/           # 已确定的规格（唯一真相）
+├── project.md       # Project conventions (creative principles, style guide)
+├── AGENTS.md        # AI assistant work instructions
+├── specs/           # Established specifications (Single Source of Truth)
 │   ├── characters/
 │   ├── worldbuilding/
 │   └── outline/
-└── changes/         # 变更提案
+└── changes/         # Change proposals
     └── archive/
 ```
 
-### 使用 AI 助手创建提案
+### Create Proposal Using AI Assistant
 
-在 Cursor/Claude/Windsurf 等 AI 工具中使用斜杠命令：
+Use slash commands in AI tools like Cursor/Claude/Windsurf:
 
 ```
 /novelspec-proposal
 ```
 
-AI 会引导你创建第一个变更提案（如创作第1-10章）。
+AI will guide you to create the first change proposal (e.g., creating chapters 1-10).
 
-### 验证提案
+### Validate Proposal
 
 ```bash
 novelspec validate add-chapter-1-10
 ```
 
-输出：
+Output:
 ```
-变更: add-chapter-1-10
+Change: add-chapter-1-10
 ──────────────────────────────────────────────────
-格式验证:
-✓ proposal.md 包含 Why/What/Impact
-✓ tasks.md 使用任务清单格式
-✓ specs/outline/spec.md 格式正确
-✓ 所有 Requirement 至少一个 Scenario
+Format Verification:
+✓ proposal.md contains Why/What/Impact
+✓ tasks.md uses task list format
+✓ specs/outline/spec.md format is correct
+✓ All Requirements have at least one Scenario
 
-验证结果: 通过
+Verification Result: Passed
 ```
 
-## 📚 核心概念
+## 📚 Core Concepts
 
-### specs/ - 已确定的规格（唯一真相）
+### specs/ - Established Specifications (Single Source of Truth)
 
-存储已经确定的小说规格：
-- **characters/** - 角色规格（主角、配角、反派）
-- **worldbuilding/** - 世界观规格（魔法体系、地理、势力）
-- **outline/** - 故事大纲规格（已完成的章节大纲）
+Stores confirmed novel specifications:
+- **characters/** - Character specs (protagonist, supporting characters, villains)
+- **worldbuilding/** - Worldview specs (magic system, geography, factions)
+- **outline/** - Story outline specs (completed chapter outlines)
 
-### changes/ - 变更提案
+### changes/ - Change Proposals
 
-管理待创作的章节和设定变更：
-- 每个变更包含：`proposal.md`, `tasks.md`, `specs/` 增量
-- 验证通过后开始创作
-- 完成后归档到 `archive/`
+Manages chapters to be written and setting changes:
+- Each change includes: `proposal.md`, `tasks.md`, `specs/` delta
+- Start writing after verification passes
+- Archive to `archive/` after completion
 
-### Requirements + Scenarios 格式
+### Requirements + Scenarios Format
 
-所有规格使用可验证的格式：
+All specs use a verifiable format:
 
 ```markdown
-### Requirement: 角色基础设定
-主角应该（SHALL）具有明确的身份背景。
+### Requirement: Character Basic Setting
+The protagonist SHALL have a clear identity background.
 
-#### Scenario: 身份信息
-- **WHEN** 主角出场或被提及
-- **THEN** 姓名：陈凡
-- **THEN** 年龄：25岁
-- **THEN** 性格：理性、内向、善良但不圣母
+#### Scenario: Identity Information
+- **WHEN** Protagonist appears or is mentioned
+- **THEN** Name: Chen Fan
+- **THEN** Age: 25 years old
+- **THEN** Personality: Rational, introverted, kind but not a "Saint"
 ```
 
-## 🛠️ CLI 命令
+## 🛠️ CLI Commands
 
 ### `novelspec init <project-name>`
 
-初始化一个新的小说项目。
+Initialize a new novel project.
 
 ```bash
-novelspec init my-novel           # 创建新项目
-novelspec init my-novel --here    # 在当前目录初始化
+novelspec init my-novel           # Create new project
+novelspec init my-novel --here    # Initialize in current directory
 ```
 
 ### `novelspec list`
 
-列出变更或规格。
+List changes or specs.
 
 ```bash
-novelspec list                    # 列出活跃变更
-novelspec list --archive          # 列出已归档变更
-novelspec list --specs            # 列出所有规格
-novelspec list --json             # JSON 格式输出
+novelspec list                    # List active changes
+novelspec list --archive          # List archived changes
+novelspec list --specs            # List all specs
+novelspec list --json             # JSON output
 ```
 
 ### `novelspec show <item-id>`
 
-显示变更或规格详情。
+Show details of a change or spec.
 
 ```bash
-novelspec show add-chapter-1-10                      # 显示变更详情
-novelspec show characters/protagonist --type spec    # 显示规格详情
-novelspec show add-chapter-1-10 --json               # JSON 输出
+novelspec show add-chapter-1-10                      # Show change details
+novelspec show characters/protagonist --type spec    # Show spec details
+novelspec show add-chapter-1-10 --json               # JSON output
 ```
 
 ### `novelspec validate [change-id]`
 
-验证变更提案的格式。
+Validate the format of a change proposal.
 
 ```bash
-novelspec validate                    # 验证所有活跃变更
-novelspec validate add-chapter-1-10   # 验证单个变更
-novelspec validate --strict           # 严格验证模式
-novelspec validate --json             # JSON 输出
+novelspec validate                    # Validate all active changes
+novelspec validate add-chapter-1-10   # Validate a single change
+novelspec validate --strict           # Strict validation mode
+novelspec validate --json             # JSON output
 ```
 
 ### `novelspec archive <change-id>`
 
-归档已完成的变更。
+Archive a completed change.
 
 ```bash
-novelspec archive add-chapter-1-10    # 归档变更
-novelspec archive add-chapter-1-10 -y # 归档（跳过确认）
+novelspec archive add-chapter-1-10    # Archive change
+novelspec archive add-chapter-1-10 -y # Archive (skip confirmation)
 ```
 
 ### `novelspec --help`
 
-查看帮助信息。
+View help information.
 
 ```bash
 novelspec --help
@@ -185,111 +185,111 @@ novelspec show --help
 novelspec archive --help
 ```
 
-## 🤖 AI 助手集成
+## 🤖 AI Assistant Integration
 
-Novel-Writer-OpenSpec 在初始化项目时会自动创建 AI 助手集成指令：
+Novel-Writer-OpenSpec automatically creates AI assistant integration instructions when initializing a project:
 
-### 自动创建的文件
+### Automatically Created Files
 
-运行 `novelspec init my-novel` 后，会在项目中创建：
+After running `novelspec init my-novel`, the following are created in the project:
 
-- **`.cursor/commands/`** - Cursor 斜杠命令配置
-  - `novelspec-proposal.md` - 创建提案命令
-  - `novelspec-apply.md` - 执行创作命令
-  - `novelspec-archive.md` - 归档变更命令
-- **`novelspec/AGENTS.md`** - 完整的 AI 助手工作指令
+- **`.cursor/commands/`** - Cursor slash command configuration
+  - `novelspec-proposal.md` - Create proposal command
+  - `novelspec-apply.md` - Execute writing command
+  - `novelspec-archive.md` - Archive change command
+- **`novelspec/AGENTS.md`** - Complete AI assistant work instructions
 
-### 支持的 AI 工具
+### Supported AI Tools
 
-- **Cursor** - 自动创建 `.cursor/commands/`
-- **Claude** - 参考 `novelspec/AGENTS.md`
-- **Windsurf** - 参考 `novelspec/AGENTS.md`
-- **其他** - 参考 `novelspec/AGENTS.md`
+- **Cursor** - Automatically creates `.cursor/commands/`
+- **Claude** - Refer to `novelspec/AGENTS.md`
+- **Windsurf** - Refer to `novelspec/AGENTS.md`
+- **Others** - Refer to `novelspec/AGENTS.md`
 
-### AI 助手命令
+### AI Assistant Commands
 
-#### `/novelspec-proposal` - 创建变更提案
+#### `/novelspec-proposal` - Create Change Proposal
 
-AI 会引导你创建结构化提案：
-1. 询问创作意图（第X-Y章/扩展设定）
-2. 生成 `proposal.md`, `tasks.md`, `specs/`
-3. 自动运行 `novelspec validate`
-4. 输出验证结果
+AI guides you to create a structured proposal:
+1. Ask for creative intent (Chapter X-Y/Extend setting)
+2. Generate `proposal.md`, `tasks.md`, `specs/`
+3. Automatically run `novelspec validate`
+4. Output verification results
 
-#### `/novelspec-apply` - 执行创作
+#### `/novelspec-apply` - Execute Writing
 
-AI 按照提案和任务清单创作章节：
-1. 读取 `proposal.md`, `design.md`, `tasks.md`
-2. 基于 `specs/` 的真相创作
-3. 持续验证每一章
-4. 标记完成的任务
+AI writes chapters according to the proposal and task list:
+1. Read `proposal.md`, `design.md`, `tasks.md`
+2. Write based on the truth in `specs/`
+3. Continuously verify each chapter
+4. Mark tasks as completed
 
-#### `/novelspec-archive` - 归档变更
+#### `/novelspec-archive` - Archive Change
 
-（Phase 2 将实现）
+(To be implemented in Phase 2)
 
-## 📖 工作流示例
+## 📖 Workflow Example
 
-### 创作第1-10章的完整流程
+### Complete Process of Writing Chapters 1-10
 
-#### 1. 创建提案
+#### 1. Create Proposal
 
-使用 AI 助手：
+Use AI assistant:
 ```
 /novelspec-proposal
 ```
 
-AI 询问：
+AI asks:
 ```
-你想创作第几章？或扩展什么设定？
-```
-
-回答：
-```
-创作第1-10章，主角穿越到玄幻世界，获得签到系统，完成入门修炼
+Which chapter do you want to write? or what setting to extend?
 ```
 
-AI 生成：
+Answer:
+```
+Write chapters 1-10, protagonist travels to a fantasy world, obtains a sign-in system, completes introductory cultivation
+```
+
+AI generates:
 - `novelspec/changes/add-chapter-1-10/proposal.md`
 - `novelspec/changes/add-chapter-1-10/tasks.md`
 - `novelspec/changes/add-chapter-1-10/specs/outline/spec.md`
 - `novelspec/changes/add-chapter-1-10/specs/characters/protagonist/spec.md`
 
-#### 2. 验证提案
+#### 2. Validate Proposal
 
 ```bash
 novelspec validate add-chapter-1-10 --strict
 ```
 
-#### 3. 执行创作
+#### 3. Execute Writing
 
-使用 AI 助手：
+Use AI assistant:
 ```
 /novelspec-apply
 ```
 
-AI 自动：
-- 读取所有相关规格
-- 按 `tasks.md` 顺序创作章节
-- 生成 `chapters/volume-1/chapter-001.md` 至 `chapter-010.md`
-- 持续验证每一章
+AI automatically:
+- Reads all relevant specs
+- Writes chapters in order of `tasks.md`
+- Generates `chapters/volume-1/chapter-001.md` to `chapter-010.md`
+- Continuously verifies each chapter
 
-#### 4. 归档变更
+#### 4. Archive Change
 
-（Phase 2 将支持）
+(Will be supported in Phase 2)
 
 ```bash
 novelspec archive add-chapter-1-10
 ```
 
-## 🗂️ 项目结构
+## 🗂️ Project Structure
 
 ```
 my-novel/
-├── novelspec/                  # 规格管理目录
-│   ├── project.md              # 项目约定
-│   ├── AGENTS.md               # AI 助手指令
-│   ├── specs/                  # 已确定规格（唯一真相）
+├── novelspec/                  # Spec management directory
+│   ├── project.md              # Project conventions
+│   ├── AGENTS.md               # AI assistant instructions
+│   ├── specs/                  # Established specs (Single Source of Truth)
 │   │   ├── characters/
 │   │   │   ├── protagonist/spec.md
 │   │   │   ├── heroine/spec.md
@@ -299,119 +299,119 @@ my-novel/
 │   │   │   ├── geography/spec.md
 │   │   │   └── factions/spec.md
 │   │   └── outline/spec.md
-│   └── changes/                # 变更提案
+│   └── changes/                # Change proposals
 │       ├── add-chapter-1-10/
 │       │   ├── proposal.md
 │       │   ├── tasks.md
 │       │   └── specs/
 │       └── archive/
-├── chapters/                   # 章节内容（生成产物）
+├── chapters/                   # Chapter content (Generated artifacts)
 │   ├── volume-1/
 │   │   ├── chapter-001.md
 │   │   ├── chapter-002.md
 │   │   └── ...
 │   └── volume-2/
-└── docs/                       # 项目文档
+└── docs/                       # Project documentation
     └── workflow-guide.md
 ```
 
-## 📝 规格示例
+## 📝 Spec Example
 
-### 角色规格
+### Character Spec
 
 ```markdown
 # novelspec/specs/characters/protagonist/spec.md
 
 ## Purpose
-主角陈凡的完整规格定义。
+Complete spec definition for protagonist Chen Fan.
 
 ## Requirements
 
-### Requirement: 基础设定
-主角应该（SHALL）具有明确且一致的身份背景。
+### Requirement: Basic Setting
+The protagonist SHALL have a clear and consistent identity background.
 
-#### Scenario: 身份信息
-- **WHEN** 主角出场或被提及
-- **THEN** 姓名：陈凡
-- **THEN** 年龄：25岁
-- **THEN** 性格：理性、内向、善良但不圣母
+#### Scenario: Identity Information
+- **WHEN** Protagonist appears or is mentioned
+- **THEN** Name: Chen Fan
+- **THEN** Age: 25 years old
+- **THEN** Personality: Rational, introverted, kind but not a "Saint"
 
-### Requirement: 行为模式
-主角在不同情境下应该（SHALL）展现一致的行为模式。
+### Requirement: Behavior Pattern
+The protagonist SHALL exhibit consistent behavior patterns in different situations.
 
-#### Scenario: 面对危险时
-- **WHEN** 遇到生命威胁
-- **THEN** 保持冷静，理性分析局势
-- **THEN** 优先寻找逃生路线
+#### Scenario: Facing Danger
+- **WHEN** Encountering life threat
+- **THEN** Remain calm, rationally analyze the situation
+- **THEN** Prioritize finding an escape route
 ```
 
-### 变更提案示例
+### Change Proposal Example
 
 ```markdown
 # novelspec/changes/add-chapter-11-20/proposal.md
 
 ## Why
-前10章完成了主角入门和基础修炼，第11-20章需要通过宗门大比展现主角实力和成长。
+Chapters 1-10 completed the protagonist's introduction and basic cultivation. Chapters 11-20 need to demonstrate the protagonist's strength and growth through the Sect Competition.
 
 ## What Changes
-- 新增第11-20章大纲规格
-- 主角等级从炼气7层 → 炼气9层
-- 新增配角规格：天才弟子李剑、神秘导师云长老
+- Add outline specs for chapters 11-20
+- Protagonist level from Qi Refining Level 7 → Qi Refining Level 9
+- Add supporting character specs: Genius disciple Li Jian, Mysterious mentor Elder Yun
 
 ## Impact
-- **影响规格**：
-  - `specs/outline/spec.md`（新增10章）
-  - `specs/characters/protagonist/spec.md`（等级更新）
-  - `specs/characters/li-jian/spec.md`（新增）
+- **Impacted Specs**:
+  - `specs/outline/spec.md` (Add 10 chapters)
+  - `specs/characters/protagonist/spec.md` (Level update)
+  - `specs/characters/li-jian/spec.md` (Added)
 ```
 
-## 🔧 开发
+## 🔧 Development
 
-### 本地开发
+### Local Development
 
 ```bash
-# 克隆仓库
+# Clone repository
 git clone https://github.com/wordflowlab/novel-writer-openspec.git
 cd novel-writer-openspec
 
-# 安装依赖
+# Install dependencies
 npm install
 
-# 构建
+# Build
 npm run build
 
-# 本地安装命令
+# Link locally
 npm link
 
-# 测试
+# Test
 novelspec --version
 ```
 
-### 目录结构
+### Directory Structure
 
 ```
 novel-writer-openspec/
-├── src/                    # 源代码
-│   ├── cli.ts              # CLI 入口
-│   ├── commands/           # CLI 命令
+├── src/                    # Source code
+│   ├── cli.ts              # CLI entry
+│   ├── commands/           # CLI commands
 │   │   ├── init.ts
 │   │   └── validate.ts
-│   ├── core/               # 核心模块
+│   ├── core/               # Core modules
 │   │   ├── parser.ts
 │   │   ├── validator.ts
 │   │   └── template-manager.ts
-│   └── utils/              # 工具函数
+│   └── utils/              # Utility functions
 │       └── file-ops.ts
-├── templates/              # 模板文件
+├── templates/              # Template files
 │   ├── project.md.template
 │   ├── AGENTS.md.template
 │   ├── characters/
 │   ├── worldbuilding/
 │   └── outline/
-├── docs/                   # 文档
+├── docs/                   # Documentation
 │   ├── PRD.md
 │   └── workflow-guide.md
-├── openspec/               # OpenSpec 规格（项目自身）
+├── openspec/               # OpenSpec specs (Project itself)
 │   ├── project.md
 │   ├── specs/
 │   └── changes/
@@ -420,26 +420,26 @@ novel-writer-openspec/
 └── README.md
 ```
 
-## 📚 文档
+## 📚 Documentation
 
-- [PRD - 产品需求文档](./docs/PRD.md)
-- [工作流指南](./docs/workflow-guide.md)
-- [AI 助手指令示例](./templates/AGENTS.md.template)
+- [PRD - Product Requirement Document](./docs/PRD.md)
+- [Workflow Guide](./docs/workflow-guide.md)
+- [AI Assistant Instructions Example](./templates/AGENTS.md.template)
 
-## 🤝 贡献
+## 🤝 Contribution
 
-欢迎贡献！请查看 [CONTRIBUTING.md](./CONTRIBUTING.md)。
+Contributions are welcome! Please check [CONTRIBUTING.md](./CONTRIBUTING.md).
 
-## 📄 许可证
+## 📄 License
 
-MIT License - 详见 [LICENSE](./LICENSE)
+MIT License - See [LICENSE](./LICENSE)
 
-## 🔗 相关项目
+## 🔗 Related Projects
 
-- [OpenSpec](https://github.com/Fission-AI/OpenSpec) - 原始 OpenSpec 方法论
-- [Novel-Writer](https://github.com/wordflowlab/novel-writer) - 基于 Spec-Kit 的小说创作工具
+- [OpenSpec](https://github.com/Fission-AI/OpenSpec) - Original OpenSpec methodology
+- [Novel-Writer](https://github.com/wordflowlab/novel-writer) - Novel writing tool based on Spec-Kit
 
-## 📮 联系方式
+## 📮 Contact
 
 - Issues: [GitHub Issues](https://github.com/wordflowlab/novel-writer-openspec/issues)
 - Email: [your-email@example.com](mailto:your-email@example.com)
